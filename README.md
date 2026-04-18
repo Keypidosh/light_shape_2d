@@ -1,4 +1,8 @@
-# Light Shape 2D (Baked)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Keypidosh/light_shape_2d/main/light_shape_2d_icon.png" width="128" height="128">
+</p>
+
+# Light Shape 2D
 
 An optimized 2D lighting tool for Godot 4. Design complex light shapes with gizmos and bake them into textures to eliminate real-time overhead.
 
