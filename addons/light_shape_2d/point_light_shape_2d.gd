@@ -9,7 +9,7 @@ class_name PointLightShape2D
 - To optimize the lights, use the scale instead of increasing the radius.":
 	set(v): pass 
 
-@export_group("Shape Settings")
+@export_category("Shape Settings")
 @export var RESET_SHAPE: bool = false:
 	set(v):
 		if v:
@@ -18,18 +18,18 @@ class_name PointLightShape2D
 		notify_property_list_changed()
 
 @export_range(16, 1024) var radius: int = 128:
-	set(v): radius = v; queue_redraw()
+	set(v): radius = v
 @export_range(0, 360) var rotation_deg: float = 0.0:
-	set(v): rotation_deg = v; queue_redraw()
+	set(v): rotation_deg = v
 @export_range(0.0, 1.0) var falloff: float = 1.0:
-	set(v): falloff = v; queue_redraw()
+	set(v): falloff = v
 @export_range(0, 360) var arc_degrees: float = 360.0:
-	set(v): arc_degrees = v; queue_redraw()
+	set(v): arc_degrees = v
 @export_range(0, 360) var inner_arc_degrees: float = 360.0:
-	set(v): inner_arc_degrees = v; queue_redraw()
+	set(v): inner_arc_degrees = v
 
 @export_category("Baking & Saving")
-@export var BAKE_LIGHT_NOW: bool = false:
+@export var BAKE_LIGHT: bool = false:
 	set(v):
 		if v:
 			do_bake_logic()
@@ -62,7 +62,8 @@ func _reset_to_defaults():
 	falloff = 1.0
 	arc_degrees = 360.0
 	inner_arc_degrees = 360.0
-	queue_redraw()
+	do_bake_logic()
+	notify_property_list_changed()
 
 func _update_default_path():
 	var safe_name = name.to_snake_case().replace("@", "")
